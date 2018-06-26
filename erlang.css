@@ -983,6 +983,7 @@ footer p{
 		-webkit-box-sizing: border-box;
 	}
 	header.scroll nav div span a {
+		margin-left : 10px;
 		font-variant : small-caps;
 		text-transform: lowercase;
 
