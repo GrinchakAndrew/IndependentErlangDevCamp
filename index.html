@@ -1,0 +1,458 @@
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title></title>
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link type="text/css" rel="stylesheet" href="erlang.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="./jquery.event.move.js"></script>
+		<script src="./jquery.event.swipe.js"></script>
+		<script src="./parallax.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div>
+					<a href="#" class="main_logo">
+						<img style="width: 13%;" src="images/erlang.png"/>
+					</a>
+					<a href="#" class="mobile_menu"></a>
+					<span>
+						<a href="#">Клиенты</a>
+						<a href="#">Наши Достижения</a>
+						<a href="#">О Бюро</a>
+						<a href="#">Команда</a>
+						<a href="#">Обратная Связь</a>
+						<a href="#">Проекты</a>
+						<a href="#">Аналитика</a>
+					</span>
+				</div>
+			</nav>
+			<p class="countdown">Independent</p>
+			<p class="countdown">Erlang</p>
+			<p class="countdown">DevCamp</p>
+			<script type="text/javascript">
+				$(window).scroll(function(){
+					if($(window).scrollTop() > 40 && !$('header').hasClass('scroll')){
+						$('header').addClass('scroll');
+					}else if($(window).scrollTop() < 5){
+						$('header').removeClass('scroll');
+					}
+				});
+			</script>
+		</header>
+		<main>
+			<section class="clients">
+				<h2>наши клиенты</h2>
+				<p>
+					<img src="./images/PrivatBank-671x362.png" alt=""/>
+					<img src="./images/PrivatBank-671x362.png" alt=""/>
+					<img src="./images/PrivatBank-671x362.png" alt=""/>
+				</p>
+			</section>
+			<section class="slider">
+				<img src="./images/Sprites/Talking_2x.png" width="58" height="58" alt=""/>
+				<h2><strong></strong></h2>
+				<div>
+					<ul>
+						<li><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p></li>
+						<li><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p></li>
+						
+					</ul>	
+				</div>	
+				<script type="text/javascript">
+					;(function(){
+						var sliderContainer = $('.slider ul'),
+							inprogress = false;
+
+						sliderContainer.parent().after($('<ol>' + Array(sliderContainer.find('li').length + 1).join('<li></li>') + '</ol>'));
+						sliderContainer.width(sliderContainer.find('li').length * 100 + '%');
+						sliderContainer.css({
+							'margin-left': sliderContainer.parent().width() / 2 - sliderContainer.find('li').width() / 2,
+							'visibility': 'visible'
+						});
+						$(window).resize(function(){
+							sliderContainer.css({
+								'margin-left': sliderContainer.parent().width() / 2 - sliderContainer.find('li').width() / 2,
+								'visibility': 'visible',
+								'left': -1 * $('ol li.active').index() * sliderContainer.find('li').width()
+							});
+						});
+						$('.slider ul li:eq(0)').css('opacity', 1);
+						$('.slider ol li:eq(0)').addClass('active');
+						$('.slider div')
+							.on('swipeleft', function(e){	
+								$('.slider ol li.active').next().click();
+							})
+							.on('swiperight', function(e){	
+								$('.slider ol li.active').prev().click();
+							}).on('movestart', function(e) {
+								// If the movestart is heading off in an upwards or downwards
+								// direction, prevent it so that the browser scrolls normally.
+								if ((e.distX > e.distY && e.distX < -e.distY) ||
+									(e.distX < e.distY && e.distX > -e.distY)) {
+									e.preventDefault();
+								}
+							});	
+						$('.slider').on('click', 'ol li:not(.active)', function(){
+							if(inprogress) return;
+							inprogress = true;
+							var self = $(this),
+								activeIndex = $('ol li.active').index(),
+								index = self.index(),
+								left = parseInt(sliderContainer.css('left'));
+
+							$('ol li.active').removeClass('active');
+							self.addClass('active');
+
+							sliderContainer.find('li').eq(index).animate({
+								'opacity': 1
+							});
+
+							sliderContainer.find('li').eq(activeIndex).animate({
+								'opacity': 0
+							});
+
+							sliderContainer.animate({
+								'left': left + (activeIndex - index) * sliderContainer.find('li').width()
+							}, function(){ inprogress = false; });							
+						});
+					})();
+					
+					var interval = setInterval(function(){
+						if($('.slider li.active~li').length){
+							$('.slider li.active~li').click();
+						}else {
+							$('.slider ol li:nth-child(1)').click()	
+						}
+					}, 2500);
+					
+				</script>
+			</section>
+			
+			<section class="about">
+				<img src="./images/Sprites/About_2x.png" width="58" height="58" alt=""/>
+				<h2><strong></strong> о бюро</h2>
+				<article>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet ultricies mauris. Nullam sed aliquet metus, nec lobortis lectus. Vivamus congue fermentum tempor. Curabitur suscipit justo eu ipsum varius faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eros quam, tincidunt ut est ut, laoreet pretium est. Sed vel est vitae quam pharetra mattis et sed risus. Aliquam sed justo commodo, tempor metus nec, scelerisque risus. Morbi enim est, consequat a velit at, pharetra pulvinar velit. Nullam fermentum semper nisl, id lacinia est semper ut. In ultricies justo et justo malesuada, a sodales elit ornare. Vestibulum congue velit eget neque hendrerit, vitae malesuada arcu maximus. Morbi porttitor aliquet metus, gravida dictum neque viverra vitae.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet ultricies mauris. Nullam sed aliquet metus, nec lobortis lectus. Vivamus congue fermentum tempor. Curabitur suscipit justo eu ipsum varius faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eros quam, tincidunt ut est ut, laoreet pretium est. Sed vel est vitae quam pharetra mattis et sed risus. Aliquam sed justo commodo, tempor metus nec, scelerisque risus. Morbi enim est, consequat a velit at, pharetra pulvinar velit. Nullam fermentum semper nisl, id lacinia est semper ut. In ultricies justo et justo malesuada, a sodales elit ornare. Vestibulum congue velit eget neque hendrerit, vitae malesuada arcu maximus. Morbi porttitor aliquet metus, gravida dictum neque viverra vitae.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet ultricies mauris. Nullam sed aliquet metus, nec lobortis lectus. Vivamus congue fermentum tempor. Curabitur suscipit justo eu ipsum varius faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eros quam, tincidunt ut est ut, laoreet pretium est. Sed vel est vitae quam pharetra mattis et sed risus. Aliquam sed justo commodo, tempor metus nec, scelerisque risus. Morbi enim est, consequat a velit at, pharetra pulvinar velit. Nullam fermentum semper nisl, id lacinia est semper ut. In ultricies justo et justo malesuada, a sodales elit ornare. Vestibulum congue velit eget neque hendrerit, vitae malesuada arcu maximus. Morbi porttitor aliquet metus, gravida dictum neque viverra vitae.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet ultricies mauris. Nullam sed aliquet metus, nec lobortis lectus. Vivamus congue fermentum tempor. Curabitur suscipit justo eu ipsum varius faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eros quam, tincidunt ut est ut, laoreet pretium est. Sed vel est vitae quam pharetra mattis et sed risus. Aliquam sed justo commodo, tempor metus nec, scelerisque risus. Morbi enim est, consequat a velit at, pharetra pulvinar velit. Nullam fermentum semper nisl, id lacinia est semper ut. In ultricies justo et justo malesuada, a sodales elit ornare. Vestibulum congue velit eget neque hendrerit, vitae malesuada arcu maximus. Morbi porttitor aliquet metus, gravida dictum neque viverra vitae.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet ultricies mauris. Nullam sed aliquet metus, nec lobortis lectus. Vivamus congue fermentum tempor. Curabitur suscipit justo eu ipsum varius faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eros quam, tincidunt ut est ut, laoreet pretium est. Sed vel est vitae quam pharetra mattis et sed risus. Aliquam sed justo commodo, tempor metus nec, scelerisque risus. Morbi enim est, consequat a velit at, pharetra pulvinar velit. Nullam fermentum semper nisl, id lacinia est semper ut. In ultricies justo et justo malesuada, a sodales elit ornare. Vestibulum congue velit eget neque hendrerit, vitae malesuada arcu maximus. Morbi porttitor aliquet metus, gravida dictum neque viverra vitae.</p>
+				</article>
+				<a href="#" class="cta">Скачать Брошюру</a>
+			</section>
+			<section class="speakers">
+				<img src="./images/Sprites/Speakers_2x.png" width="58" height="58" alt=""/>
+				<h2><strong>Наша</strong> команда</h2>
+				<article>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet ultricies mauris. Nullam sed aliquet metus, nec lobortis lectus. Vivamus congue fermentum tempor. Curabitur suscipit justo eu ipsum varius faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eros quam, tincidunt ut est ut, laoreet pretium est. Sed vel est vitae quam pharetra mattis et sed risus. Aliquam sed justo commodo, tempor metus nec, scelerisque risus. Morbi enim est, consequat a velit at, pharetra pulvinar velit. Nullam fermentum semper nisl, id lacinia est semper ut. In ultricies justo et justo malesuada, a sodales elit ornare. Vestibulum congue velit eget neque hendrerit, vitae malesuada arcu maximus. Morbi porttitor aliquet metus, gravida dictum neque viverra vitae.</p>
+				</article>
+				<div>
+					
+					<figure>
+						<img src="./images/people/Terminator-6.jpg" alt="Mark Simpson" width="175" height="175"/>
+						<figcaption><strong>Guru</strong> John Smith</figcaption>
+						<span>Director of everything, <strong> Big Brother, Inc.</strong></span>
+						<div class="prop_email prop_n">
+							<i class="iconic-mail">&nbsp;</i> <a href="mailto:johnny_deppe@gmail.com">Отправить письмо</a>
+						</div>
+					</figure>
+					<figure>
+						<img src="./images/people/Terminator-6.jpg" alt="Mark Simpson" width="175" height="175"/>
+						<figcaption><strong>Guru</strong> John Smith</figcaption>
+						<span>Director of everything, <strong> Big Brother, Inc.</strong></span>
+						<div class="prop_email prop_n">
+							<i class="iconic-mail">&nbsp;</i> <a href="mailto:johnny_deppe@gmail.com">Отправить письмо</a>
+						</div>
+					</figure>
+					<figure>
+						<img src="./images/people/Terminator-6.jpg" alt="Mark Simpson" width="175" height="175"/>
+						<figcaption><strong>Guru</strong> John Smith</figcaption>
+						<span>Director of everything, <strong> Big Brother, Inc.</strong></span>
+						<div class="prop_email prop_n">
+							<i class="iconic-mail">&nbsp;</i> <a href="mailto:johnny_deppe@gmail.com">Отправить письмо</a>
+						</div>
+					</figure>
+				<div>
+			</section>
+			<section class="reserve">
+				<img src="images/kontakty.jpg" width="58" height="58" alt=""/>
+				<h2><strong>Обратная Связь</strong></h2>
+				<article>
+					<p>Заполните, пожалуйста форму с любым Вашим вопросом:</p>
+				</article>
+				<form method="post">
+					<ul>
+						<li>
+							<label><i>*</i>Ваше Имя:</label>
+							<input type="text" name="first_name"/>
+						</li>
+						<li>
+							<label><i>*</i>Ваша Фамилия:</label>
+							<input type="text" name="last_name"/>
+						</li>
+						<li>
+							<label><i>*</i>Номер Телефона</label>
+							<input type="text" name="phone_number"/>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<label><i>*</i>Email</label>
+							<input type="text" name="email_address"/>
+						</li>
+						<li>
+							<label>Компания</label>
+							<input type="text" name="company_name"/>
+						</li>
+						<li>
+							<label><i>*</i>Ваш вопрос:</label>
+							<input type="text" name="job_title"/>
+						</li>
+					</ul>
+				</form>
+				<a href="#" class="cta">Обратитесь к нам</a>
+			</section>
+			<section class="agenda">
+				<img src="./images/Sprites/Agenda_2x.png" width="58" height="58" alt=""/>
+				<h2><strong></strong> Проекты</h2>
+				<article>
+					<p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+				</article>
+				<ul>
+						
+					<li>
+						<span><strong></strong></span>
+						<div>
+							<h3>Международный коммерческий арбитраж</h3>
+							<p>Международный коммерческий арбитраж</p>
+							<b>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo</b>
+						</div>
+					</li>
+					<li>
+						<span><strong></strong></span>
+						<div>
+							<h3>Международный коммерческий арбитраж</h3>
+							<p>Международный коммерческий арбитраж</p>
+							<b>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo</b>
+						</div>
+					</li>
+					<li>
+						<span><strong></strong></span>
+						<div>
+							<h3>Международный коммерческий арбитраж</h3>
+							<p>Международный коммерческий арбитраж</p>
+							<b>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo</b>
+						</div>
+					</li>
+					<li>
+						<span><strong></strong></span>
+						<div>
+							<h3>Международный коммерческий арбитраж</h3>
+							<p>Международный коммерческий арбитраж</p>
+							<b>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo</b>
+						</div>
+					</li>
+					
+					
+				</ul>
+				<script type="text/javascript">
+					$('.agenda li').click(function(){
+						$(this).toggleClass('expanded');
+						$(this).find('div p').slideToggle();
+					});
+				</script>
+			</section>
+			
+			<section class="location">
+				<img src="./images/Sprites/Place_2x.png" width="58" height="58" alt=""/>
+				<h2><strong></strong> Аналитика</h2>
+				<article>
+					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+					
+					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+					
+				</article>
+				<a href="#" class="cta">Узнать Больше</a>
+			</section>
+			<section class="map" id="map">
+				<script type="text/javascript">
+					;(function(){
+						var mapCenter = [48.468445, 35.007910],
+							eventPlace = [48.468445, 35.007910];
+
+						var mapCanvas = $('#map')[0],
+							mapOptions = {
+								center: new google.maps.LatLng(mapCenter[0], mapCenter[1]),
+								zoom: 13,
+								streetViewControl: false,
+								scrollwheel: false,
+								mapTypeId: google.maps.MapTypeId.ROADMAP,
+								styles: [
+										    {
+										        "featureType": "administrative",
+										        "elementType": "all",
+										        "stylers": [
+										            {
+										                "visibility": "on"
+										            },
+										            {
+										                "lightness": 33
+										            }
+										        ]
+										    },
+										    {
+										        "featureType": "landscape",
+										        "elementType": "all",
+										        "stylers": [
+										            {
+										                "color": "#f2e5d4"
+										            }
+										        ]
+										    },
+										    {
+										        "featureType": "poi.park",
+										        "elementType": "geometry",
+										        "stylers": [
+										            {
+										                "color": "#c5dac6"
+										            }
+										        ]
+										    },
+										    {
+										        "featureType": "poi.park",
+										        "elementType": "labels",
+										        "stylers": [
+										            {
+										                "visibility": "on"
+										            },
+										            {
+										                "lightness": 20
+										            }
+										        ]
+										    },
+										    {
+										        "featureType": "road",
+										        "elementType": "all",
+										        "stylers": [
+										            {
+										                "lightness": 20
+										            }
+										        ]
+										    },
+										    {
+										        "featureType": "road.highway",
+										        "elementType": "geometry",
+										        "stylers": [
+										            {
+										                "color": "#c5c6c6"
+										            }
+										        ]
+										    },
+										    {
+										        "featureType": "road.arterial",
+										        "elementType": "geometry",
+										        "stylers": [
+										            {
+										                "color": "#e4d7c6"
+										            }
+										        ]
+										    },
+										    {
+										        "featureType": "road.local",
+										        "elementType": "geometry",
+										        "stylers": [
+										            {
+										                "color": "#fbfaf7"
+										            }
+										        ]
+										    },
+										    {
+										        "featureType": "water",
+										        "elementType": "all",
+										        "stylers": [
+										            {
+										                "visibility": "on"
+										            },
+										            {
+										                "color": "#acbcc9"
+										            }
+										        ]
+										    }
+										]
+							},
+							map = new google.maps.Map(mapCanvas, mapOptions),
+							marker = new google.maps.Marker({
+								position: new google.maps.LatLng(eventPlace[0], eventPlace[1]),
+								map: map,
+								icon: './images/Sprites/marker.png'
+							});
+							$(window).resize(function(){
+								map.setCenter(new google.maps.LatLng(mapCenter[0], mapCenter[1]));
+  							});
+							if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+								map.setOptions({draggable: false});
+							}
+					})();
+				</script>
+			</section>
+			<section class="social">
+				<h2><strong></strong>Свяжитесь С Нами</h2>
+				<article>
+					<p>#Erlang, Ukraine</p>
+					<p>
+						<a href="#"><img src="./images/Sprites/Social Media/FaceBook_2x.png" width="33" height="32"></a>
+						<a href="#"><img src="./images/Sprites/Social Media/Twitter_2x.png" width="33" height="32"></a>
+						<a href="#"><img src="./images/Sprites/Social Media/LinkedIn_2x.png" width="33" height="32"></a>
+						<a href="#"><img src="./images/Sprites/Social Media/Google_2x.png" width="33" height="32"></a>
+						<a href="#"><img src="./images/Sprites/Social Media/Slideshare_2x.png" width="33" height="32"></a>
+						<a href="#"><img src="./images/Sprites/Social Media/Youtube_2x.png" width="33" height="32"></a>
+					</p>
+				</article>
+			</section>
+		</main>
+		<footer>
+			<p>&copy; Guru John Smith</p>
+		</footer>
+		<script type="text/javascript">
+			/* disable parallax scrolling for mobile devices */
+			if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				/* parallax */ 
+				$('section.reserve, section.location').parallax({ speed: 0.3 });
+			}else{
+				$('section.reserve, section.location').css({ "background-position": "center center" });
+			}
+	
+			
+			/* main menu navigation */
+			$('nav span a').click(function(){
+				var index = $(this).index();
+				$('html, body').animate({
+    				scrollTop: $("h2").eq(index).offset().top - 160
+				});
+				$('header.expanded').removeClass('expanded');
+				return false;
+			});
+
+			
+			/* about section's cta */
+			$('section.about .cta').click(function(){
+				$('html, body').animate({
+    				scrollTop: $("h2:contains('reserve')").offset().top - 160
+				});
+				return false;
+			});
+
+			
+			/* hamburger */
+			$('.mobile_menu').click(function(){
+				$(this).parents().filter('header').toggleClass('expanded');
+				return false;
+			});
+		</script>
+	</body>
+</html>	
