@@ -442,9 +442,7 @@ section.about article{
 	-webkit-column-count: 2;
 	-webkit-column-gap: 25px;
 }
-section.about article p{
-	margin-bottom:22px;
-}
+
 /* speakers */
 section.speakers{
 	background:#f4f5f2;
@@ -756,15 +754,23 @@ section.agenda ul li div p {
 	display:none;
 }
 
-.analytics{
+.analytics {
 	font-family:OpenSansL;
 	font-size:18px;
-	color:#fff;
+	color:#000;
 	line-height:27px;
 	margin-top:22px;
 	margin-bottom:22px;
+	text-align : justify;
 }
-
+.about_us {
+	font-family:OpenSansL;
+	font-size:18px;
+	color:#000;
+	line-height:35px;
+	margin-bottom:22px;
+	text-align : justify;
+}
 
 section.agenda ul li div b{
 	margin-top:7px;
@@ -849,7 +855,7 @@ section.slider ol li.active{
 }
 /* location */
 section.location{
-	background:transparent url(./images/place_bg_image.jpg) no-repeat fixed center top;
+	/*background:transparent url(./images/place_bg_image.jpg) no-repeat fixed center top;*/
 	padding-bottom:51px;
 	position:relative;
 	overflow:hidden;
@@ -869,7 +875,7 @@ section.location:before{
 	z-index:0;
 	width:100%;
 	height:100%;
-	background:#000;
+	/*background:#000;*/
 }
 section.location img{
 	margin-top:50px;
@@ -879,18 +885,18 @@ section.location h2{
 	font-weight:300;
 	font-size:39px;
 	line-height:39px;
-	color:#fff;
+	color:#000;
 	margin:20px 0 23px;
 	text-transform:uppercase;
 }
 section.location h2 strong{
 	font-family:DINCond;
 	font-size:39px;
-	color:#fff;
+	color:#000;
 }
 section.location article{
 	font-family: OpenSansL;
-	color:#fff;
+	color:#000;
 	font-size:13px;
 	line-height:21px;
 	display:block;
@@ -907,7 +913,7 @@ section.location article.address p{
 }
 section.location .cta{
 	border-color:#fff;
-	color:#fff;
+	color:#ссс;
 	padding:0 40px;
 	margin-top:8px;
 }
@@ -1265,4 +1271,10 @@ footer p{
 	section.reserve form ul{
 		width:300px;
 	}
+}
+
+.premapper{
+	width : 100%;
+	height : 10px;
+	background: linear-gradient(to bottom, #c64d78 0%, #d1d1c6c7 56%), url(./images/premapperbackground.png) center/cover repeat;
 }
