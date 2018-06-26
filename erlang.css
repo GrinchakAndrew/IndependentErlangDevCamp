@@ -984,6 +984,8 @@ footer p{
 	}
 	header nav div span a {
 		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 1000px) {
@@ -993,6 +995,11 @@ footer p{
 		-moz-box-sizing:border-box;
 		-webkit-box-sizing:border-box;
 		padding:0 15px;
+	}
+	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 1020px) {
@@ -1005,6 +1012,11 @@ footer p{
 	section.speakers div figure:nth-child(3n-2){
 		margin-left:0px;
 	}
+	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
+	}
 }
 @media screen and (max-width: 840px) {
 	section.speakers div figure{
@@ -1015,6 +1027,11 @@ footer p{
 	}
 	section.speakers div figure:nth-child(3n-2){
 		margin-left:0px;
+	}
+	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 737px) {
@@ -1029,6 +1046,11 @@ footer p{
 	}
 	section.speakers div figure:nth-child(2n-1){
 		margin-left:0;
+	}
+	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 560px) {
@@ -1045,6 +1067,11 @@ footer p{
 		display:block;
 		margin:0 auto 35px auto !important;
 	}
+	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
+	}
 }
 @media screen and (max-width: 916px) {
 	header nav a{
@@ -1052,6 +1079,11 @@ footer p{
 	}
 	header nav a.mobile_menu{
 		display:block;
+	}
+	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 790px) {
@@ -1146,15 +1178,30 @@ footer p{
 		line-height:47px;
 		margin-bottom:0;
 	}
+		header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
+	}
 }
 @media screen and (max-width: 990px) {
 	section.slider ul li p{
 		width:920px;
 	}
+		header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
+	}
 }
 @media screen and (max-width: 940px) {
 	section.slider ul li p{
 		width:870px;
+	}
+		header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 890px) {
@@ -1166,40 +1213,77 @@ footer p{
 	section.slider ul li p{
 		width:770px;
 	}
+		header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
+	}
 }
 @media screen and (max-width: 790px) {
 	section.slider ul li p{
 		width:720px;
+	}
+		header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 740px) {
 	section.slider ul li p{
 		width:670px;
 	}
+		header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
+	}
 }
 @media screen and (max-width: 690px) {
 	section.slider ul li p{
 		width:620px;
+	}
+		header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 640px) {
 	section.slider ul li p{
 		width:570px;
 	}
+		header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
+	}
 }
 @media screen and (max-width: 590px) {
 	section.slider ul li p{
 		width:520px;
+	}	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 540px) {
 	section.slider ul li p{
 		width:470px;
+	}	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 490px) {
 	section.slider ul li p{
 		width:420px;
+	}	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 440px) {
@@ -1210,11 +1294,19 @@ footer p{
 @media screen and (max-width: 400px) {
 	.countdown_item{
 		margin-left:40px;
+	}	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 390px) {
 	section.slider ul li p{
 		width:320px;
+	}	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 380px) {
@@ -1223,6 +1315,10 @@ footer p{
 	}
 	section.social article a{
 		margin-left:12px;
+	}	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 350px) {
@@ -1234,6 +1330,10 @@ footer p{
 	}
 	section.reserve form ul{
 		width:320px;
+	}	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
 @media screen and (max-width: 340px) {
@@ -1248,5 +1348,9 @@ footer p{
 	}
 	section.reserve form ul{
 		width:300px;
+	}	header nav div span a {
+		margin-left : 7px;
+		font-variant : small-caps;
+		text-transform: lowercase;		
 	}
 }
