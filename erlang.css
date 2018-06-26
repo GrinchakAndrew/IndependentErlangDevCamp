@@ -983,9 +983,8 @@ footer p{
 		-webkit-box-sizing: border-box;
 	}
 	header.scroll nav div span a {
-		margin-left : 10px;
+		margin-left : 7px;
 	}
-	
 }
 @media screen and (max-width: 1000px) {
 	section.agenda ul{
